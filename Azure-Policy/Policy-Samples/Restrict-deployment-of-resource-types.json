@@ -1,0 +1,29 @@
+{
+    "properties": {
+        "displayName": "Deployment Restrictions",
+        "description": "Prevents the deployment of all resources",
+        "category": "General",
+        "mode": "all",
+        "parameters": {
+            "PermittedResources": {
+                "type": "array",
+                "metadata": {
+                    "displayName": "Permitted resources",
+                    "description": "Permitted resources only",
+                    "strongType": "resourceTypes"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "type",
+                    "in": "[parameters('PermittedResources')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
