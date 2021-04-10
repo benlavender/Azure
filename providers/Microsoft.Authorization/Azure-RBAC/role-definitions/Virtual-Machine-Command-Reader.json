@@ -1,0 +1,19 @@
+{
+    "properties": {
+        "roleName": "Virtual Machine Command Reader",
+        "description": "Permits reading of Run Commands on virtual machines",
+        "assignableScopes": ["/subscriptions/your_subscription"],
+        "isCustom": true,
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/locations/runCommands/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}

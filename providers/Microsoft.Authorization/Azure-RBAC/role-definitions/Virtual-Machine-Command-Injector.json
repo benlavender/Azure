@@ -2,12 +2,11 @@
     "properties": {
         "roleName": "Virtual Machine Command Injector",
         "description": "Permits commands to be sent to the VM using the Run command operation and viewing of VM resources",
-        "assignableScopes": ["/subscriptions/07b6991f-c067-4870-b1d3-de8663bf38d6/resourceGroups/rg-test-lab-001"],
+        "assignableScopes": ["resource_group_scope"],
         "IsCustom": true,
         "permissions": [
             {
                 "actions": [
-                    "Microsoft.Compute/virtualMachines/read",
                     "Microsoft.Compute/virtualMachines/runCommand/action"
                 ],
                 "notActions": [],
