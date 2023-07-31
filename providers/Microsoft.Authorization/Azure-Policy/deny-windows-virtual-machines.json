@@ -1,0 +1,40 @@
+{
+    "properties": {
+        "displayName": "Deny Windows virtual machines",
+        "description": "Denys the deployment of Windows-type virtual machines.",
+        "mode": "indexed",
+        "metadata": {
+            "category": "Compute"
+        },
+        "version": "1.0.0",
+        "policyRule": {
+            "if": {
+                "anyOf": [
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Compute/virtualMachines"
+                            },
+                            {
+                                "anyOf": [
+                                    {
+                                        "field": "Microsoft.Compute/imagePublisher",
+                                        "equals": "MicrosoftWindowsDesktop"
+                                    },
+                                    {
+                                        "field": "Microsoft.Compute/imagePublisher",
+                                        "equals": "MicrosoftWindowsServer"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
